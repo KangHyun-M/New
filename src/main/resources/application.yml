@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/shop?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 1234
+    hikari:
+      auto-commit: false
+      connection-test-query: SELECT 1
+      minimum-idle: 10
+      maximum-pool-size: 20
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+      pool-name: pool-swtodo
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+        hbm2ddl.auto: update
+    open-in-view: false
+    show-sql: true
+  jackson:
+    time-zone: Asia/Seoul
